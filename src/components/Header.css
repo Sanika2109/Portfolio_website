@@ -1,0 +1,117 @@
+/* src/components/Header.css */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  color: white;
+  text-align: center;
+  perspective: 1000px; /* Adds depth to the 3D effects */
+  position: relative;
+  overflow: hidden; /* Ensures sparkles don't overflow outside the header */
+}
+
+.hero-content {
+  max-width: 600px;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-out;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin: 0;
+  transform: rotateY(0deg); /* Initial position */
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0 0 20px;
+}
+
+.resume-button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  font-size: 1.1rem;
+  background-color: #ff4081;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #e91e63;
+  transform: scale(1.1);
+}
+
+/* 3D Parallax effect */
+.hero:hover .hero-content {
+  transform: rotateY(10deg) translateZ(50px); /* Move content closer to the viewer */
+}
+
+/* Hover effect for text */
+.hero:hover h1 {
+  transform: rotateY(-10deg); /* Rotate title for depth effect */
+}
+
+/* Floating effect for the hero content */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.hero-content {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Adding subtle shadow effects */
+.hero h1, .hero h2, .resume-button {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Sparkles (glitters) */
+.sparkle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sparkle span {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  opacity: 0;
+  animation: sparkle 1.5s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+}

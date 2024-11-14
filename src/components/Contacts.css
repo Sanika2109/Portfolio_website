@@ -1,0 +1,22 @@
+/* src/components/Contact.css */
+.contact {
+  padding: 10px 10px;
+  background-color: #222;
+  color: white;
+  text-align: center;
+}
+
+.contact p {
+  font-size: 1.2rem;
+}
+
+.social-links a {
+  color: #ff4081;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
